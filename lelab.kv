@@ -1,0 +1,95 @@
+WidgetsExemple:
+
+
+
+<WidgetsExemple>:
+    cols: 3
+    ToggleButton:
+        text: "OFF"
+        on_state: root.on_toggle_button_state(self)
+        size_hint: None,1
+        width : "100dp"
+    Button:
+        text: "Comptez"
+        on_press: root.on_button_click()
+        disabled : not root.compteur_actif
+    Label:
+        text: root.mon_texte
+        font_size: "80dp"
+        color : 1,0.5,1,1
+
+    Switch:
+        id : mon_switch
+        active : True
+        on_active : root.on_switch_active(self)
+        size_hint: None,1
+        width : "100dp"
+
+    Slider:
+        id : mon_slider
+        min: 0
+        max: 100
+        #value : 50
+        #on_value : root.on_slider_value(self)
+        orientation : "vertical"
+        disabled : not mon_switch.active
+
+    BoxLayout:
+        orientation: "vertical"
+        Label:
+            text: str(mon_slider.value)
+        ProgressBar:
+            max: 100
+            value: mon_slider.value
+
+    TextInput:
+        id : mon_text_input
+        size_hint: None,1
+        width : "100dp"
+        text: "DessIA"
+        multiline: False
+        on_text_validate: root.on_text_validate(self)
+    Label:
+        text: root.texte_input_str
+
+
+
+
+
+
+
+
+<BoxLayoutExemple>:
+    orientation : "horizontal"
+    Button:
+        text:"A"
+        size_hint : .5, .5
+        # size: "100dp","60dp"
+        # height : "60dp"
+        # x, right, center_x
+        # y, top, center_y
+        pos_hint: {"center_y":0.5}
+
+    BoxLayout:
+        orientation : "vertical"
+        Button:
+            text:"B1"
+        Button:
+            text:"B2"
+        Button:
+            text:"B3"
+    Label:
+        text:"C"
+
+
+<MainWidget>:
+    Button:
+        text: "Younes"
+        size: "100dp", "60dp"
+        pos : "200dp", "100dp"
+        color: 0,0,1,1
+    Label:
+        text: "BELABID"
+        size: "100dp", "60dp"
+        pos : "300dp", "100dp"
+        color: 1,0,0,1
